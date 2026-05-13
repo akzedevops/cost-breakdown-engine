@@ -1,0 +1,290 @@
+{
+  "resources": [
+    {
+      "resource_id": "i-0a1b2c3d4e5f",
+      "name": "api-server-prod-1",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "production",
+      "monthly_cost": 184.32,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "platform" }
+    },
+    {
+      "resource_id": "i-0b2c3d4e5f6a",
+      "name": "api-server-prod-2",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "production",
+      "monthly_cost": 184.32,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "platform" }
+    },
+    {
+      "resource_id": "i-0c3d4e5f6a7b",
+      "name": "worker-prod-1",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "production",
+      "monthly_cost": 92.16,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "platform" }
+    },
+    {
+      "resource_id": "eks-prod-nodegroup-a",
+      "name": "eks-prod-nodegroup-a",
+      "service": "EKS",
+      "category": "compute",
+      "environment": "production",
+      "monthly_cost": 320.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "cluster": "prod-cluster" }
+    },
+    {
+      "resource_id": "eks-prod-nodegroup-b",
+      "name": "eks-prod-nodegroup-b",
+      "service": "EKS",
+      "category": "compute",
+      "environment": "production",
+      "monthly_cost": 240.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "cluster": "prod-cluster" }
+    },
+    {
+      "resource_id": "i-0d4e5f6a7b8c",
+      "name": "api-server-staging-1",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "staging",
+      "monthly_cost": 92.16,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "platform" }
+    },
+    {
+      "resource_id": "eks-staging-nodegroup",
+      "name": "eks-staging-nodegroup",
+      "service": "EKS",
+      "category": "compute",
+      "environment": "staging",
+      "monthly_cost": 160.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "cluster": "staging-cluster" }
+    },
+    {
+      "resource_id": "i-0e5f6a7b8c9d",
+      "name": "api-server-dev-1",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "dev",
+      "monthly_cost": 46.08,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "dev-team" }
+    },
+    {
+      "resource_id": "i-0f6a7b8c9d0e",
+      "name": "api-server-dev-2",
+      "service": "EC2",
+      "category": "compute",
+      "environment": "dev",
+      "monthly_cost": 46.08,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "backend", "owner": "dev-team" }
+    },
+    {
+      "resource_id": "s3-prod-assets",
+      "name": "prod-assets-bucket",
+      "service": "S3",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 87.50,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "assets" }
+    },
+    {
+      "resource_id": "s3-prod-backups",
+      "name": "prod-backups-bucket",
+      "service": "S3",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 42.30,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "backups" }
+    },
+    {
+      "resource_id": "s3-staging-assets",
+      "name": "staging-assets-bucket",
+      "service": "S3",
+      "category": "storage",
+      "environment": "staging",
+      "monthly_cost": 18.20,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "assets" }
+    },
+    {
+      "resource_id": "s3-dev-assets",
+      "name": "dev-assets-bucket",
+      "service": "S3",
+      "category": "storage",
+      "environment": "dev",
+      "monthly_cost": 5.80,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "dev-team", "type": "assets" }
+    },
+    {
+      "resource_id": "ebs-prod-vol-1",
+      "name": "prod-ebs-volume-1",
+      "service": "EBS",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 56.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "attached_to": "api-server-prod-1" }
+    },
+    {
+      "resource_id": "ebs-prod-vol-2",
+      "name": "prod-ebs-volume-2",
+      "service": "EBS",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 56.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "attached_to": "api-server-prod-2" }
+    },
+    {
+      "resource_id": "ebs-staging-vol-1",
+      "name": "staging-ebs-volume-1",
+      "service": "EBS",
+      "category": "storage",
+      "environment": "staging",
+      "monthly_cost": 22.40,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform" }
+    },
+    {
+      "resource_id": "rds-prod-primary",
+      "name": "prod-rds-primary",
+      "service": "RDS",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 280.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "data", "engine": "postgres", "role": "primary" }
+    },
+    {
+      "resource_id": "rds-prod-replica",
+      "name": "prod-rds-replica",
+      "service": "RDS",
+      "category": "storage",
+      "environment": "production",
+      "monthly_cost": 210.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "data", "engine": "postgres", "role": "replica" }
+    },
+    {
+      "resource_id": "rds-staging-db",
+      "name": "staging-rds-db",
+      "service": "RDS",
+      "category": "storage",
+      "environment": "staging",
+      "monthly_cost": 112.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "data", "engine": "postgres" }
+    },
+    {
+      "resource_id": "rds-dev-db",
+      "name": "dev-rds-db",
+      "service": "RDS",
+      "category": "storage",
+      "environment": "dev",
+      "monthly_cost": 56.00,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "dev-team", "engine": "postgres" }
+    },
+    {
+      "resource_id": "alb-prod-main",
+      "name": "prod-application-lb",
+      "service": "ELB",
+      "category": "network",
+      "environment": "production",
+      "monthly_cost": 52.56,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "ALB" }
+    },
+    {
+      "resource_id": "alb-staging-main",
+      "name": "staging-application-lb",
+      "service": "ELB",
+      "category": "network",
+      "environment": "staging",
+      "monthly_cost": 26.28,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "ALB" }
+    },
+    {
+      "resource_id": "cf-prod-dist",
+      "name": "prod-cloudfront-distribution",
+      "service": "CloudFront",
+      "category": "network",
+      "environment": "production",
+      "monthly_cost": 78.40,
+      "region": "global",
+      "unit": "USD",
+      "tags": { "team": "platform", "type": "CDN" }
+    },
+    {
+      "resource_id": "dt-prod-outbound",
+      "name": "prod-data-transfer-outbound",
+      "service": "DataTransfer",
+      "category": "network",
+      "environment": "production",
+      "monthly_cost": 96.30,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "direction": "outbound" }
+    },
+    {
+      "resource_id": "dt-staging-outbound",
+      "name": "staging-data-transfer-outbound",
+      "service": "DataTransfer",
+      "category": "network",
+      "environment": "staging",
+      "monthly_cost": 18.60,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "platform", "direction": "outbound" }
+    },
+    {
+      "resource_id": "dt-dev-outbound",
+      "name": "dev-data-transfer-outbound",
+      "service": "DataTransfer",
+      "category": "network",
+      "environment": "dev",
+      "monthly_cost": 4.20,
+      "region": "us-east-1",
+      "unit": "USD",
+      "tags": { "team": "dev-team", "direction": "outbound" }
+    }
+  ]
+}
