@@ -2,7 +2,6 @@
 
 A FinOps layer that gives engineers clear visibility into AWS infrastructure spend — broken down by **category**, **AWS service**, and **environment**, with rule-based insights surfaced on top.
 
-> Take-home assignment for the Backend DevOps Engineer role at White Code Labs.
 
 ---
 
