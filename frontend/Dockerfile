@@ -8,6 +8,10 @@ RUN npm run build
 
 # Unprivileged nginx runs as uid 101 and listens on 8080 — no root in the runtime image
 FROM nginxinc/nginx-unprivileged:alpine
+# Pick up OS security patches that the base image hasn't rebuilt with yet
+USER root
+RUN apk upgrade --no-cache
+USER nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 8080
