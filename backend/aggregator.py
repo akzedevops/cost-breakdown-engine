@@ -26,16 +26,15 @@ The rest of this module (aggregation logic) stays unchanged.
 """
 
 import json
-from pathlib import Path
 from collections import defaultdict
-from typing import Any
+from pathlib import Path
 
 from models import (
-    Resource,
     CategoryBreakdown,
-    ServiceBreakdown,
-    EnvironmentBreakdown,
     CostSummary,
+    EnvironmentBreakdown,
+    Resource,
+    ServiceBreakdown,
 )
 
 _DATA_FILE = Path(__file__).parent / "data" / "mock_costs.json"
@@ -44,6 +43,7 @@ _DATA_FILE = Path(__file__).parent / "data" / "mock_costs.json"
 # ---------------------------------------------------------------------------
 # Data loader
 # ---------------------------------------------------------------------------
+
 
 def _load_resources() -> list[Resource]:
     """Load resources from the mock JSON file.
@@ -59,6 +59,7 @@ def _load_resources() -> list[Resource]:
 # Aggregation helpers
 # ---------------------------------------------------------------------------
 
+
 def _round2(value: float) -> float:
     return round(value, 2)
 
@@ -72,6 +73,7 @@ def _pct(part: float, total: float) -> float:
 # ---------------------------------------------------------------------------
 # Public API — used by FastAPI routes
 # ---------------------------------------------------------------------------
+
 
 def get_all_resources() -> list[Resource]:
     return _load_resources()

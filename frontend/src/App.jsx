@@ -77,7 +77,7 @@ export default function App() {
         {/* ── Service table ── */}
         <div style={{ ...styles.card, marginBottom: 24 }}>
           <h2 style={styles.cardTitle}>Service-Level Cost Breakdown</h2>
-          <ServiceTable services={data.services} total={data.summary.total_monthly_cost} />
+          <ServiceTable services={data.services} />
         </div>
 
         {/* ── Insights ── */}

@@ -6,7 +6,7 @@ const CATEGORY_COLORS = {
   network: { bg: '#f5f3ff', text: '#7c3aed' },
 }
 
-export default function ServiceTable({ services, total }) {
+export default function ServiceTable({ services }) {
   const [filter, setFilter] = useState('all')
 
   const filtered = filter === 'all' ? services : services.filter(s => s.category === filter)

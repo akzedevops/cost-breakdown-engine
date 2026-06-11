@@ -14,26 +14,28 @@ Endpoints:
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from models import (
-    CostSummary,
-    CategoryBreakdown,
-    ServiceBreakdown,
-    EnvironmentBreakdown,
-    CostInsights,
-    Resource,
-)
 from aggregator import (
-    get_summary,
-    get_by_category,
-    get_by_service,
-    get_by_environment,
     get_all_resources,
+    get_by_category,
+    get_by_environment,
+    get_by_service,
+    get_summary,
 )
 from insights import generate_insights
+from models import (
+    CategoryBreakdown,
+    CostInsights,
+    CostSummary,
+    EnvironmentBreakdown,
+    Resource,
+    ServiceBreakdown,
+)
 
 app = FastAPI(
     title="Cost Breakdown Engine",
-    description="FinOps layer — AWS infrastructure cost visibility by category, service, and environment.",
+    description=(
+        "FinOps layer — AWS infrastructure cost visibility by category, service, and environment."
+    ),
     version="1.0.0",
 )
 
@@ -51,6 +53,7 @@ app.add_middleware(
 # Health
 # ---------------------------------------------------------------------------
 
+
 @app.get("/health", tags=["System"])
 def health():
     return {"status": "ok", "service": "cost-breakdown-engine"}
@@ -59,6 +62,7 @@ def health():
 # ---------------------------------------------------------------------------
 # Summary
 # ---------------------------------------------------------------------------
+
 
 @app.get("/api/summary", response_model=CostSummary, tags=["Costs"])
 def summary():
@@ -69,6 +73,7 @@ def summary():
 # ---------------------------------------------------------------------------
 # Breakdowns
 # ---------------------------------------------------------------------------
+
 
 @app.get("/api/costs/by-category", response_model=list[CategoryBreakdown], tags=["Costs"])
 def costs_by_category():
@@ -92,10 +97,15 @@ def costs_by_environment():
 # Resources
 # ---------------------------------------------------------------------------
 
+
 @app.get("/api/resources", response_model=list[Resource], tags=["Resources"])
 def resources(
-    category: str | None = Query(None, description="Filter by category: compute | storage | network"),
-    environment: str | None = Query(None, description="Filter by environment: dev | staging | production"),
+    category: str | None = Query(
+        None, description="Filter by category: compute | storage | network"
+    ),
+    environment: str | None = Query(
+        None, description="Filter by environment: dev | staging | production"
+    ),
     service: str | None = Query(None, description="Filter by service, e.g. EC2"),
 ):
     """List all resources with optional filters."""
@@ -112,6 +122,7 @@ def resources(
 # ---------------------------------------------------------------------------
 # Insights
 # ---------------------------------------------------------------------------
+
 
 @app.get("/api/insights", response_model=CostInsights, tags=["Insights"])
 def insights():

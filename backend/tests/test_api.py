@@ -22,8 +22,14 @@ def test_summary_endpoint_shape():
     r = client.get("/api/summary")
     assert r.status_code == 200
     body = r.json()
-    assert {"total_monthly_cost", "total_resources", "currency",
-            "top_category", "top_service", "top_environment"} <= body.keys()
+    assert {
+        "total_monthly_cost",
+        "total_resources",
+        "currency",
+        "top_category",
+        "top_service",
+        "top_environment",
+    } <= body.keys()
 
 
 def test_by_category_endpoint():

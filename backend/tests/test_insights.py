@@ -47,6 +47,7 @@ def test_top_3_services_have_insights():
 # Configurable thresholds
 # ---------------------------------------------------------------------------
 
+
 def test_top_n_services_is_configurable(monkeypatch):
     """Override top_n_services and verify the insight count changes."""
     from config import settings

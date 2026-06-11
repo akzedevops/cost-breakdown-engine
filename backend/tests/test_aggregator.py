@@ -31,6 +31,7 @@ DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "mock_costs.json"
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _raw_resources():
     return json.loads(DATA_FILE.read_text())["resources"]
 
@@ -42,6 +43,7 @@ def _approx(a: float, b: float, tol: float = 0.05) -> bool:
 # ---------------------------------------------------------------------------
 # Summary
 # ---------------------------------------------------------------------------
+
 
 def test_total_cost_matches_raw_sum():
     expected = round(sum(r["monthly_cost"] for r in _raw_resources()), 2)
@@ -66,6 +68,7 @@ def test_summary_top_values_are_consistent():
 # ---------------------------------------------------------------------------
 # Category breakdown
 # ---------------------------------------------------------------------------
+
 
 def test_category_breakdown_covers_all_categories():
     cats = {c.category for c in get_by_category()}
@@ -93,6 +96,7 @@ def test_category_breakdown_sorted_descending():
 # Service breakdown
 # ---------------------------------------------------------------------------
 
+
 def test_service_percentages_sum_to_100():
     pct_sum = sum(s.percentage for s in get_by_service())
     assert _approx(pct_sum, 100.0)
@@ -116,6 +120,7 @@ def test_service_breakdown_sorted_descending():
 # Environment breakdown
 # ---------------------------------------------------------------------------
 
+
 def test_environment_breakdown_orders_prod_first():
     envs = [e.environment for e in get_by_environment()]
     # production must come before staging and dev (display order)
@@ -131,6 +136,7 @@ def test_environment_percentages_sum_to_100():
 # Loader
 # ---------------------------------------------------------------------------
 
+
 def test_load_resources_returns_typed_objects():
     resources = _load_resources()
     assert len(resources) == len(_raw_resources())
@@ -145,6 +151,7 @@ def test_load_resources_returns_typed_objects():
 # ---------------------------------------------------------------------------
 # Edge cases — exercise the pure helpers directly
 # ---------------------------------------------------------------------------
+
 
 def test_pct_handles_zero_total():
     from aggregator import _pct
